@@ -1,4 +1,4 @@
-{% set version = '3.12.0' %}
+{% set version = "3.13.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ncvreg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ncvreg/ncvreg_{{ version }}.tar.gz
-  sha256: bb2251da1309b7064a237b6dd08e3e5d3c486ba5864ae738548d274cd692c2f7
+  sha256: d5aaaeb089e9a750fddb3b4a9daf420a63c3e77ab9ccd7dd02919b508cb32713
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -42,15 +42,11 @@ test:
 about:
   home: http://pbreheny.github.io/ncvreg, https://github.com/pbreheny/ncvreg
   license: GPL-3.0-only
-  summary: Fits regularization paths for linear regression, GLM, and Cox regression models using
-    lasso or nonconvex penalties, in particular the minimax concave penalty (MCP) and
-    smoothly clipped absolute deviation (SCAD) penalty, with options for additional
-    L2 penalties (the "elastic net" idea). Utilities for carrying out cross-validation
-    as well as post-fitting visualization, summarization, inference, and prediction
-    are also provided.
+  summary: Fits regularization paths for linear regression, GLM, and Cox regression models using lasso or nonconvex penalties, in particular the minimax concave penalty (MCP) and smoothly clipped absolute deviation (SCAD) penalty, with options for additional L2 penalties (the "elastic net" idea). Utilities for carrying out
+    cross-validation as well as post-fitting visualization, summarization, inference, and prediction are also provided.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
