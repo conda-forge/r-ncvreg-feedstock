@@ -1,4 +1,4 @@
-{% set version = "3.14.1" %}
+{% set version = "3.14.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ncvreg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ncvreg/ncvreg_{{ version }}.tar.gz
-  sha256: a7e570da605862e7aae6472436f7b04f96641f9a036d286d9c7fbde37ca5d3e0
+  sha256: fb6a579d40de4aab4bd9ca56f56711ff4d2588592137b6a7dccf1b97566f71c1
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +22,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("c") }}                # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
