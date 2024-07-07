@@ -1,6 +1,5 @@
 {% set version = "3.14.2" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-ncvreg
@@ -13,8 +12,7 @@ source:
   sha256: fb6a579d40de4aab4bd9ca56f56711ff4d2588592137b6a7dccf1b97566f71c1
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -34,7 +32,6 @@ requirements:
     - r-base
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
