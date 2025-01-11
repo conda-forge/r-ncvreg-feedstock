@@ -12,7 +12,7 @@ source:
   sha256: edb5b53c5200da23563087e88bf33cae6de281774cc97396507ea38591583a4e
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -28,6 +28,7 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
   run:
@@ -43,7 +44,6 @@ about:
   license: GPL-3.0-only
   summary: Fits regularization paths for linear regression, GLM, and Cox regression models using lasso or nonconvex penalties, in particular the minimax concave penalty (MCP) and smoothly clipped absolute deviation (SCAD) penalty, with options for additional L2 penalties (the "elastic net" idea). Utilities for carrying out
     cross-validation as well as post-fitting visualization, summarization, inference, and prediction are also provided.
-  license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
