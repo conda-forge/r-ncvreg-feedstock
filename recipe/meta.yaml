@@ -1,4 +1,4 @@
-{% set version = "3.15.0" %}
+{% set version = "3.16.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ncvreg_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ncvreg/ncvreg_{{ version }}.tar.gz
-  sha256: 7db0015d7121a130ff566638f84fffaea2e0898ead742fcc9948070494ae556b
+  sha256: 354ec5c7166ae0b166878b4609fafe4542e2be4f8df936671243d5a8be092145
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
